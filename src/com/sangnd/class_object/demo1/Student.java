@@ -1,4 +1,4 @@
-package com.sangnd.class_object;
+package com.sangnd.class_object.demo1;
 
 public class Student {
     private String fullName;

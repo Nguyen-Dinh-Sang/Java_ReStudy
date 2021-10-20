@@ -1,4 +1,4 @@
-package com.sangnd.class_object.demo1;
+package com.sangnd.class_object;
 
 import com.sangnd.class_object.demo2.Student;
 
