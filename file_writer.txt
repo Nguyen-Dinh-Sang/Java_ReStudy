@@ -1,0 +1,2 @@
+Doc ghi dữ liệu trong Java!
+Sử dụng Stream character
