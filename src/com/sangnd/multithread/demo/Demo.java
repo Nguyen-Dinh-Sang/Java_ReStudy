@@ -9,7 +9,7 @@ public class Demo {
 //        differenceRunnableAndThread();
 //        join();
 //        synchronizedRunnable();
-        relationshipThreads();
+//        relationshipThreads();
     }
 
     private void createFromRunnable() {
