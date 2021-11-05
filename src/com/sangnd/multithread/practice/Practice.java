@@ -2,13 +2,18 @@ package com.sangnd.multithread.practice;
 
 import com.sangnd.multithread.practice.practice4.Thread1;
 import com.sangnd.multithread.practice.practice4.Thread2;
+import com.sangnd.multithread.testsynchronized.CustomThread;
+import com.sangnd.multithread.testsynchronized.SharedData;
 
 public class Practice {
     public void run() {
 //        practice1();
 //        practice2();
 //        practice3();
-        practice4();
+//        practice4();
+//        practiceSynchronized();
+//        practiceSynchronized2();
+        practiceSynchronized3();
     }
 
     private void practice1() {
@@ -74,5 +79,39 @@ public class Practice {
         for (int i = 0; i < thread2.list2.size(); i++) {
             System.out.print(thread2.list2.get(i) + " ");
         }
+    }
+
+    private void practiceSynchronized() {
+        SharedData sharedData = new SharedData();
+        CustomThread thread1 = new CustomThread(sharedData);
+        CustomThread thread2 = new CustomThread(sharedData);
+        CustomThread thread3 = new CustomThread(sharedData);
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        // Khi có nhiều thread cùng sửa data thì lúc đó data sẽ không tăng theo thứ tự nữa -> vấn đề.
+    }
+
+    private void practiceSynchronized2() {
+        SharedData sharedData = new SharedData();
+        CustomThread thread1 = new CustomThread(sharedData);
+        CustomThread thread2 = new CustomThread(sharedData);
+        CustomThread thread3 = new CustomThread(sharedData);
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        // Sau khi thêm synchronized thì dữ liệu được sửa đồng bộ nên sẽ tăng theo thứ tự.
+    }
+
+    private void practiceSynchronized3() {
+        SharedData sharedData = new SharedData();
+        com.sangnd.multithread.testsynchronized.ThreadOne threadOne = new com.sangnd.multithread.testsynchronized.ThreadOne(sharedData);
+        com.sangnd.multithread.testsynchronized.ThreadTwo threadTwo = new com.sangnd.multithread.testsynchronized.ThreadTwo(sharedData);
+        threadOne.start();
+        threadTwo.start();
+
+        // Chương trình sẽ bị treo do khóa và mở chưa hợp lý và chưa có điều kiện dừng
+        // Khi thread chạy hết for vòng cuối không kết thúc thread mà đưa vào trạng thái wait.
+        // Trên thực tế thì việc dừng luồng sẽ được xử lý từ đây.
     }
 }
