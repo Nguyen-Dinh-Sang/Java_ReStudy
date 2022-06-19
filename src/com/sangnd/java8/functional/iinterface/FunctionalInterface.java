@@ -11,6 +11,8 @@ public class FunctionalInterface {
 	public static void main(String[] args) {
 		FunctionalInterface functionalInterface = new FunctionalInterface();
 
+		// Traditional way.
+		
 		functionalInterface.printResult(new Calculate() {
 
 			@Override
@@ -18,5 +20,16 @@ public class FunctionalInterface {
 				return numberOne + numberTwo;
 			}
 		});
+		
+		functionalInterface.printResult(new CalculateImpl());
+		
+		// Lambda
+		functionalInterface.printResult((numberOne, numberTwo) -> numberOne + numberTwo);
+		
+		functionalInterface.printResult(FunctionalInterface::sameFunctionalInterface);
+	}
+	
+	public static Integer sameFunctionalInterface(Integer numberOne, Integer numberTwo) {
+		return numberOne * numberTwo;
 	}
 }
