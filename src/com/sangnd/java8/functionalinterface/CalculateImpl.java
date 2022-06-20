@@ -1,4 +1,4 @@
-package com.sangnd.java8.functional.iinterface;
+package com.sangnd.java8.functionalinterface;
 
 public class CalculateImpl implements Calculate{
 
