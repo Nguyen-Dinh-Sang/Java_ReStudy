@@ -2,6 +2,7 @@ package com.sangnd.java8.streams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SequaltialStream {
 	private List<String> listName;
@@ -24,11 +25,11 @@ public class SequaltialStream {
 	}
 
 	public List<String> filterName(String name) {
-		return listName.stream().filter(nameItem -> nameItem.contains(name)).toList();
+		return listName.stream().filter(nameItem -> nameItem.contains(name)).collect(Collectors.toList());
 	}
 
 	public List<String> toUpperCase() {
-		return listName.stream().map(nameItem -> nameItem.toUpperCase()).toList();
+		return listName.stream().map(nameItem -> nameItem.toUpperCase()).collect(Collectors.toList());
 	}
 
 	public Integer totalCost() {
